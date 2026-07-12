@@ -62,11 +62,11 @@ export function MpcReframerView({
     }
   }, []);
 
-  const previewChord = useCallback((sectionIdx: number, chordIdx: number) => {
+  const previewChord = useCallback(async (sectionIdx: number, chordIdx: number) => {
     const sec = reframedSections[sectionIdx];
     if (!sec?.chords?.[chordIdx]) return;
     const chord = sec.chords[chordIdx];
-    audioEngine.resume();
+    await audioEngine.resume();
 
     if (chord.pianoVoicing?.notes) {
       const synth = Ju60Engine.getInstance();
@@ -89,9 +89,9 @@ export function MpcReframerView({
     }
   }, [reframedSections]);
 
-  const previewClick = useCallback((bpm: number, swing: number) => {
+  const previewClick = useCallback(async (bpm: number, swing: number) => {
     stopClick();
-    audioEngine.resume();
+    await audioEngine.resume();
     const track = audioEngine.tracks.get('drums');
     if (!track) return;
 

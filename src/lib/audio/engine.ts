@@ -55,7 +55,8 @@ export class AudioEngine {
     this.soloBus = new Tone.Gain(0).connect(this.masterLimiter);
 
     // Reverb bus: receives per‑track sends, feeds fully‑wet reverb
-    this.reverbBus = new Tone.Gain(0);
+    // Bus is at unity — individual track send levels control the mix amount.
+    this.reverbBus = new Tone.Gain(1);
     this.masterReverb = new Tone.Reverb({
       decay: 1.5,
       preDelay: 0.01,
