@@ -78,19 +78,28 @@ export class AudioEngine {
     // Async readiness – reverb must be ready before playback
     this.ready = this.masterReverb.ready.then(() => {});
 
-    // Create default tracks — main + drum submix + sampler
+    // Create default tracks — main + submix buses + sampler
     AudioEngine.DEFAULT_TRACKS.forEach(name => this.addTrack(name));
-    AudioEngine.DRUM_SUBMIX_TRACKS.forEach(name => this.addTrack(name));
+
+    // Drum submix tracks route INTO the drums bus so the main drums fader
+    // controls the entire kit while individual submix strips stay useful.
+    const drumBus = this.tracks.get('drums');
+    AudioEngine.DRUM_SUBMIX_TRACKS.forEach(name => this.addTrack(name, drumBus?.inputGain));
+
     AudioEngine.SAMPLER_TRACKS.forEach(name => this.addTrack(name));
+
+    // Drums bus has its own reverb send disabled since submix children
+    // already provide per-drum reverb control via their own sends.
+    drumBus?.setReverbSend(0);
 
     // Populate default drum name mappings
     Object.assign(this.drumKit, AudioEngine.DEFAULT_DRUM_NAMES);
   }
 
   // ── Track management ────────────────────────────────
-  addTrack(name: string): Track {
+  addTrack(name: string, outputDestination?: Tone.ToneAudioNode): Track {
     if (this.tracks.has(name)) return this.tracks.get(name)!;
-    const track = new Track(name, this.dryGain, this.reverbBus, this);
+    const track = new Track(name, this.dryGain, this.reverbBus, this, outputDestination);
     this.tracks.set(name, track);
     return track;
   }
@@ -323,22 +332,26 @@ export class Track {
     name: string,
     dryMaster: Tone.Volume,
     reverbBus: Tone.Gain,
-    engine: AudioEngine
+    engine: AudioEngine,
+    outputDestination?: Tone.ToneAudioNode,
   ) {
     this.name = name;
     this._engine = engine;
 
-    // ── Node chain: inputGain -> trimNode -> eqHigh -> filter -> panner -> volumeNode -> dryMaster
+    // ── Node chain: inputGain -> trimNode -> eqHigh -> filter -> panner -> volumeNode -> destination
     this.inputGain = new Tone.Gain(1);
     this.trimNode = new Tone.Gain(1);
-    this.eqHigh = new Tone.EQ3(0, 0, 0); // We use high/low shelf mostly
+    this.eqHigh = new Tone.EQ3(0, 0, 0);
     this.filter = new Tone.Filter(20000, 'lowpass');
     this.analyser = new Tone.Analyser('fft', 32);
     this.panner = new Tone.Panner(0);
     this.volumeNode = new Tone.Volume(0); // 0 dB
 
     this.inputGain.chain(this.trimNode, this.eqHigh, this.filter, this.panner, this.volumeNode);
-    this.volumeNode.connect(dryMaster);
+
+    // Route to parent bus if provided, otherwise to master dryGain
+    const destination = outputDestination ?? dryMaster;
+    this.volumeNode.connect(destination);
     this.volumeNode.connect(this.analyser);
 
     // ── Reverb send (post‑panner, pre‑volume) ────────
