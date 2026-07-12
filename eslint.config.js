@@ -1,6 +1,10 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import tsdoc from 'eslint-plugin-tsdoc';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default [
   {
@@ -14,6 +18,8 @@ export default [
         ecmaVersion: 2022,
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
+        projectService: true,
+        tsconfigRootDir: __dirname,
       },
     },
     plugins: {

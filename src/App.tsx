@@ -146,10 +146,10 @@ export default function App() {
     loadUserProjects();
   }, []);
 
-  const [, setTick] = React.useState(0);
+  const [sidebarTempo, setSidebarTempo] = React.useState(transport.tempo);
   useEffect(() => {
-    const unsubscribe = transport.subscribe(() => setTick(t => t + 1));
-    return () => { unsubscribe(); };
+    // Sync sidebar tempo display with transport on mount
+    setSidebarTempo(transport.tempo);
   }, []);
 
   const viewIcons: Record<ViewMode, { icon: React.ReactNode; label: string; desc: string }> = {
@@ -212,7 +212,7 @@ export default function App() {
               <div>
                 <label className="block text-[9px] uppercase text-slate-500 mb-1">Tempo</label>
                 <div className="flex items-center gap-1 bg-black/60 border border-white/10 rounded-lg px-2 py-1">
-                  <input type="number" value={transport.tempo} onChange={e => { transport.tempo = parseInt(e.target.value) || 120; setTick(t => t + 1); }}
+                  <input type="number" value={sidebarTempo} onChange={e => { const v = parseInt(e.target.value) || 120; transport.tempo = v; setSidebarTempo(v); }}
                     className="w-full bg-transparent text-xs text-white focus:outline-none" />
                   <span className="text-[9px] text-slate-500 uppercase font-mono">BPM</span>
                 </div>
