@@ -388,8 +388,3 @@ export class Sequencer {
 }
 
 export const sequencer = Sequencer.getInstance();
-
-// Expose for test instrumentation
-if (typeof window !== 'undefined') {
-  (window as any).__SEQUENCER__ = sequencer;
-}

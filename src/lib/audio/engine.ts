@@ -7,7 +7,6 @@ import * as Tone from 'tone';
 export class AudioEngine {
   public readonly ctx: AudioContext;
   public readonly dryGain: Tone.Volume;
-  public readonly soloBus: Tone.Gain;          // isolated solo mix bus
   public readonly masterLimiter: Tone.Limiter;
   public readonly masterReverb: Tone.Reverb;
   public readonly reverbBus: Tone.Gain;
@@ -50,9 +49,6 @@ export class AudioEngine {
 
     // ── Master chain ────────────────────────────────
     this.masterLimiter = new Tone.Limiter(-1).toDestination();
-
-    // Solo bus: soloed tracks route here instead of dry master
-    this.soloBus = new Tone.Gain(0).connect(this.masterLimiter);
 
     // Reverb bus: receives per‑track sends, feeds fully‑wet reverb
     // Bus is at unity — individual track send levels control the mix amount.
