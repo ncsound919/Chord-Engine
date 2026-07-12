@@ -293,7 +293,7 @@ test('Audio Pipeline Verification — end-to-end signal measurement', async ({ p
 
     const hasDrumsSignal = drumsFft.some(v => v > -100);
     const hasMasterRms = masterRms.some(v => Math.abs(v) > 1e-6);
-    diag.push(`6g. ${hasDrumsSignal ? '🔥' : '❄️'} drums, ${hasMasterRms ? '🔥' : '❄️'} master — ${(hasDrumsSignal && hasMasterRms) ? 'AUDIO CHAIN WORKS' : 'AUDIO CHAIN BROKEN'}`);
+    diag.push(`  6g. ${hasDrumsSignal ? '🔥' : '❄️'} drums, ${hasMasterRms ? '🔥' : '❄️'} master — ${(hasDrumsSignal && hasMasterRms) ? 'AUDIO CHAIN WORKS' : 'AUDIO CHAIN BROKEN'}`);
 
     return diag;
   });
@@ -305,22 +305,34 @@ test('Audio Pipeline Verification — end-to-end signal measurement', async ({ p
   const phase7 = await page.evaluate(() => {
     const w = window as any;
     const ae = w.__AUDIO_ENGINE__;
-    const diag: string[] = [];
     const tp = w.__TRANSPORT__;
-    
+    const diag: string[] = [];
+
     if (tp) {
       diag.push(`7a. Transport singleton: playing=${tp.isPlaying}, tempo=${tp.tempo}`);
     }
-    
-    // Check if Tone Transport is advancing by comparing positions
-    try {
-      const toneTransport = (self as any).Tone?.getTransport?.();
-      if (toneTransport) {
-        const pos = toneTransport.position;
-        const state = toneTransport.state;
-        diag.push(`7b. Tone.Transport.position: ${pos}, state: ${state}`);
+
+    // Check if the global __SEQUENCER__ was set
+    const sq = w.__SEQUENCER__;
+    if (sq) {
+      diag.push(`7b. Sequencer isRunning=${sq.isRunning}, sections=${sq.currentSections?.length || 0}`);
+      if (sq.currentSections?.length > 0) {
+        const sec = sq.currentSections[0];
+        const gridKeys = sec.drumPattern?.grid ? Object.keys(sec.drumPattern.grid).join(',') : 'NONE';
+        diag.push(`7c. First section: ${sec.def?.name}, bars=${sec.def?.lengthBars}, grid=[${gridKeys}]`);
+        // Check if any step is active
+        let active = 0;
+        const grid = sec.drumPattern?.grid || {};
+        for (const k of Object.keys(grid)) {
+          for (let i = 0; i < grid[k].length; i++) {
+            if (grid[k][i]) active++;
+          }
+        }
+        diag.push(`7d. Active drum steps: ${active}`);
       }
-    } catch (e: any) { diag.push(`7b. Transport error: ${e.message}`); }
+    } else {
+      diag.push(`7b. **SEQUENCER NOT ON WINDOW** — set window.__SEQUENCER__ = sequencer in your app init`);
+    }
 
     return diag;
   });

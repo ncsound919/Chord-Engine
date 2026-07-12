@@ -70,6 +70,7 @@ export class Sequencer {
   private constructor() {
     this.onBeatHandler = (beat, time) => this.processBeat(beat, time);
     this.unsubscribeBeat = transport.addBeatCallback(this.onBeatHandler);
+    transport.addStopCallback(() => { this.isRunning = false; });
   }
 
   static getInstance(): Sequencer {
@@ -97,7 +98,10 @@ export class Sequencer {
 
   setSections(sections: GeneratedSection[]) {
     this.currentSections = sections;
-    // Section context changed — invalidate the chord cache.
+    // Activate sequencer whenever sections are provided
+    if (sections.length > 0) {
+      this.isRunning = true;
+    }
     this.cachedBeatKey = null;
   }
 
@@ -140,12 +144,12 @@ export class Sequencer {
     const beatInBar = Math.floor(localBeat % (targetSection.def.beatsPerBar || 4)) + 1;
 
     // 32 steps per 2 bars (8 beats) = 4 steps per beat.
-    // Use floor + epsilon to avoid floating-point edge cases
-    // where (localBeat % 8) * 4 lands at 7.99999 and rounds up to 32.
+    // Round to nearest 16th-note step. Math.min clamp already
+    // handles the 31.999 → 32 overflow edge case.
     const DRUM_PATTERN_BEATS = 8;
     const stepInPattern = Math.min(
       STEPS_PER_PATTERN - 1,
-      Math.floor(((localBeat % DRUM_PATTERN_BEATS) * 4) + 1e-6),
+      Math.round((localBeat % DRUM_PATTERN_BEATS) * 4),
     );
 
     const tempo = Tone.getTransport().bpm.value;
@@ -378,3 +382,8 @@ export class Sequencer {
 }
 
 export const sequencer = Sequencer.getInstance();
+
+// Expose for test instrumentation
+if (typeof window !== 'undefined') {
+  (window as any).__SEQUENCER__ = sequencer;
+}
