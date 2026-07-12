@@ -68,7 +68,13 @@ export class Sequencer {
   private unsubscribeBeat: (() => void) | null = null;
 
   private constructor() {
-    this.onBeatHandler = (beat, time) => this.processBeat(beat, time);
+    this.onBeatHandler = (beat, time) => {
+      // Auto-activate whenever we receive a beat and have sections
+      if (!this.isRunning && this.currentSections.length > 0) {
+        this.isRunning = true;
+      }
+      this.processBeat(beat, time);
+    };
     this.unsubscribeBeat = transport.addBeatCallback(this.onBeatHandler);
     transport.addStopCallback(() => { this.isRunning = false; });
   }
@@ -106,7 +112,7 @@ export class Sequencer {
   }
 
   private processBeat(beat: number, time: number) {
-    if (this.currentSections.length === 0) return;
+    if (!this.isRunning || this.currentSections.length === 0) return;
 
     let totalBeatsAcc = 0;
     let targetSection: GeneratedSection | null = null;
