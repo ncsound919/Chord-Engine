@@ -1,0 +1,3 @@
+C:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio/build/CMakeFiles/ChordEngine.dir
+C:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio/build/CMakeFiles/ZERO_CHECK.dir

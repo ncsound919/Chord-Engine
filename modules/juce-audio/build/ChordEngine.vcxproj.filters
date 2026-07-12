@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\PluginProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\PluginEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\AudioGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\MixerBus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\PluginProcessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\PluginEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\AudioGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\MixerBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\DrumRack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\Source\Audio\SynthRack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BED65063-B797-3B14-A539-FD26FD7FB9D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3FAFA581-39CF-312D-B6F5-09DBE944A678}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

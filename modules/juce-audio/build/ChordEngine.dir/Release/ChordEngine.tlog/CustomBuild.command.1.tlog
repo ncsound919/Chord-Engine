@@ -1,0 +1,10 @@
+^C:\USERS\USER\DESKTOP\CHORD-ENGINE-MAIN\MODULES\JUCE-AUDIO\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio -BC:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio/build --check-stamp-file C:/Users/User/Desktop/Chord-Engine-main/modules/juce-audio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

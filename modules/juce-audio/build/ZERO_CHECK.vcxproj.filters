@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\User\Desktop\Chord-Engine-main\modules\juce-audio\build\CMakeFiles\20a7133a66c1ee584051d115a2a2d477\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4C26BADF-40F7-3642-8165-ADE795706EF4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -3,26 +3,20 @@ project(ChordEngine VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-# Find JUCE — set JUCE_DIR to your JUCE installation path
-if(NOT JUCE_DIR)
-    set(JUCE_DIR "C:/JUCE" CACHE PATH "Path to JUCE library")
-endif()
-list(APPEND CMAKE_MODULE_PATH "${JUCE_DIR}/cmake")
-find_package(JUCE REQUIRED)
+# Add JUCE as a subdirectory
+set(JUCE_DIR "C:/Users/User/Documents/JUCE" CACHE PATH "Path to JUCE root")
+add_subdirectory(${JUCE_DIR} ${CMAKE_BINARY_DIR}/JUCE)
 
-# Build as standalone with VST3/AU targets for future DAW use
+# Build as standalone application
 juce_add_plugin(ChordEngine
-    COMPANY_NAME "NC Sound"
-    PRODUCT_NAME "Chord Engine"
-    PLUGIN_MANUFACTURER_CODE Ncse
+    COMPANY_NAME "Chord Engine"
+    PRODUCT_NAME "Chord Engine Audio"
+    PLUGIN_MANUFACTURER_CODE ChEn
     PLUGIN_CODE ChEn
-    FORMATS Standalone VST3 AU
+    FORMATS Standalone
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT TRUE
-    NEEDS_MIDI_OUTPUT TRUE
-    COPY_PLUGIN_AFTER_BUILD TRUE
 )
 
 target_sources(ChordEngine PRIVATE
@@ -31,8 +25,6 @@ target_sources(ChordEngine PRIVATE
     Source/PluginProcessor.cpp
     Source/PluginEditor.h
     Source/PluginEditor.cpp
-
-    # Audio graph
     Source/Audio/AudioGraph.h
     Source/Audio/AudioGraph.cpp
     Source/Audio/MixerBus.h
@@ -41,9 +33,7 @@ target_sources(ChordEngine PRIVATE
     Source/Audio/SynthRack.h
 )
 
-target_include_directories(ChordEngine PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/Source
-)
+target_include_directories(ChordEngine PRIVATE Source)
 
 target_link_libraries(ChordEngine PRIVATE
     juce::juce_audio_basics
@@ -56,4 +46,5 @@ target_link_libraries(ChordEngine PRIVATE
     juce::juce_graphics
     juce::juce_gui_basics
     juce::juce_gui_extra
+    juce::juce_dsp
 )
