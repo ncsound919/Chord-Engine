@@ -6,6 +6,7 @@ import { PersistenceManager, SectionPreset } from '../../lib/persistence';
 import { getAllSampleIdsFromDB, getSampleFromDB, clearAllSamplesInDB } from '../../lib/audio/soundbankDb';
 import { persistAndLoadFile, persistAndLoadFromUrl, loadKitFromDB, loadBassFromDB, getLoadedSampleMap, persistAndLoadSample } from '../../lib/audio/soundbankLoader';
 import { prepopulateFromSoundLibrary } from '../../lib/audio/prepopulateSamples';
+import { mapSoundbankFile } from '../../lib/audio/soundbankMapping';
 import { SynthView } from '../views/SynthView';
 import { TabId, SoundbankStatus, createEmptySoundbankStatus, BassParams, DEFAULT_BASS_PARAMS, DRUM_NAMES, ToastMessage, ToastVariant } from '../instruments/types';
 import { DrumsTab } from '../instruments/DrumsTab';
@@ -56,41 +57,51 @@ export function InstrumentsView() {
   const handleFolderImport = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
-    let matchedCount = 0;
-    for (const file of files) {
-      // Skip hidden and double-underscore files
-      if (file.name.startsWith('.') || file.name.startsWith('__')) continue;
-      const lower = file.name.toLowerCase();
-      let sampleId: string | null = null;
-      let kitId = 'kit1';
-      if (lower.includes('bass')) {
-        sampleId = 'bass_default'; kitId = 'bass';
-      } else if (lower.includes('kick') || lower.startsWith('bd')) {
-        sampleId = 'kit1_Kick';
-      } else if (lower.includes('snare') || lower.includes('snr')) {
-        sampleId = 'kit1_Snare';
-      } else if (lower.includes('crash')) {
-        sampleId = 'kit1_Crash';
-      } else if (lower.includes('ride')) {
-        sampleId = 'kit1_Ride';
-      } else if (lower.includes('hihat') || lower.includes('hat') || lower.includes('hh')) {
-        sampleId = lower.includes('open') ? 'kit1_Hi-Hat Open' : 'kit1_Hi-Hat Closed';
-      } else if (lower.includes('tom')) {
-        const cleanName = file.name.replace(/\.[^.]+$/, '').replace(/_/g, ' ');
-        sampleId = `kit1_${cleanName}`;
-      }
-      if (sampleId) {
-        matchedCount++;
-        try {
-          const data = await file.arrayBuffer();
-          await persistAndLoadSample(sampleId, kitId, data, file.name, file.type);
-        } catch {
-          addToast('Import Error', `Failed to import ${file.name}`, 'error');
+
+    setIsLoadingSoundbank(true);
+    setLoadingAction('folder');
+
+    let imported = 0;
+    const ignored: string[] = [];
+    const duplicateTargets = new Set<string>();
+
+    try {
+      for (const file of files) {
+        const target = mapSoundbankFile(file);
+
+        if (!target) {
+          ignored.push(file.name);
+          continue;
         }
+
+        if (duplicateTargets.has(target.id)) {
+          ignored.push(`${file.name} (duplicate target: ${target.id})`);
+          continue;
+        }
+
+        duplicateTargets.add(target.id);
+
+        await persistAndLoadFile(target.id, target.targetName, file);
+        imported += 1;
       }
+
+      await refreshSoundbankStatus();
+      setJustLoadedAction('folder');
+
+      addToast(
+        'Folder Imported',
+        `Mapped ${imported} sample${imported === 1 ? '' : 's'}${ignored.length ? `; skipped ${ignored.length}` : ''}.`,
+        imported > 0 ? 'success' : 'error',
+      );
+    } catch (error) {
+      console.error('Folder import failed', error);
+      addToast('Import Error', 'One or more files could not be decoded.', 'error');
+    } finally {
+      e.target.value = '';
+      setIsLoadingSoundbank(false);
+      setLoadingAction(null);
+      window.setTimeout(() => setJustLoadedAction(null), 2000);
     }
-    await refreshSoundbankStatus();
-    addToast('Folder Imported', `Imported ${matchedCount} sample${matchedCount !== 1 ? 's' : ''}`, 'success');
   }, [refreshSoundbankStatus, addToast]);
 
   const handleClearSoundbank = useCallback(async () => {
@@ -158,14 +169,30 @@ export function InstrumentsView() {
     finally { setLoadingDrum(null); }
   };
 
-  const handleBassNote = useCallback((stringIndex: number, fret: number) => {
+  const handleBassNote = useCallback(async (stringIndex: number, fret: number) => {
     const openStringsMidi = [43, 38, 33, 28];
     const midi = openStringsMidi[stringIndex] + fret + bassParams.tuningCoarse;
+    const cents = (bassParams.tuningFine || 0) / 100;
+    const playbackRate = Math.pow(2, (midi + cents - 36) / 12);
+    const duration = bassParams.monoChoke ? bassParams.bleedDecay / 1000 : 1.2;
+
+    await audioEngine.resume();
+
+    const bassTrack = audioEngine.tracks.get('bass');
+    if (!bassTrack) return;
+
+    bassTrack.setVolume(bassParams.ampVolume / 100);
+
+    const bassSample = audioEngine.loadedSamples.get('bass');
+
+    if (bassSample) {
+      bassTrack.playBufferShifted(bassSample, playbackRate, undefined, 0, duration, 0.9);
+      return;
+    }
+
     const freq = 440 * Math.pow(2, (midi - 69) / 12);
-    audioEngine.resume();
     const waveType: OscillatorType = bassParams.style === 'pick' ? 'sawtooth' : 'triangle';
-    const track = audioEngine.tracks.get('bass');
-    if (track) track.playOscillator(freq, waveType, audioEngine.ctx.currentTime, bassParams.monoChoke ? bassParams.bleedDecay / 1000 : 1.2);
+    bassTrack.playOscillator(freq, waveType, audioEngine.ctx.currentTime, duration);
   }, [bassParams]);
 
   const handleDemoLoad = async () => {

@@ -126,9 +126,9 @@ export default function App() {
       envS: 70, envR: 45, chorus: 'I' as const, voiceMode: 'POLY' as const, unisonDetune: 15,
       subWave: 'SQR' as const,
     };
-    synth.setupChannel('lead', 'synth-lead', { ...defaultPatch });
-    synth.setupChannel('pad', 'synth-pad', { ...defaultPatch, vcfCutoff: 40, envA: 60, envR: 60 });
-    synth.setupChannel('bass', 'synth-bass', { ...defaultPatch, dcoRange: '16\'', vcfCutoff: 30, vcaMode: 'GATE' });
+    synth.setupChannel('lead', 'lead', { ...defaultPatch });
+    synth.setupChannel('pad', 'pads', { ...defaultPatch, vcfCutoff: 40, envA: 60, envR: 60, chorus: 'BOTH' as const });
+    synth.setupChannel('bass', 'bass', { ...defaultPatch, dcoRange: '16\'', vcfCutoff: 30, vcaMode: 'GATE' });
     transport.addStopCallback(() => synth.allNotesOff());
   }, []);
 

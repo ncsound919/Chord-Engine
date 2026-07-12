@@ -1,0 +1,292 @@
+﻿
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Users/User/Desktop/Chord-Engine-main[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+ [32mΓ£ô[39m src/components/instruments/bassPresets.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32mΓ£ô[39m src/components/TransportBar.test.tsx [2m([22m[2m25 tests[22m[2m)[22m[33m 774[2mms[22m[39m
+node.exe : [90mstderr[2m | src/App.test.tsx[2m > [22m[2mApp[2m > [22m[2mhandleSaveProject catches errors and 
+shows error message
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([90mstderr[2m...s error message:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[22m[39mSave error: Error: Network fail
+    at C:/Users/User/Desktop/Chord-Engine-main/src/App.test.tsx:524:84
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:302:11
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:1903:26
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/di
+st/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/d
+ist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2955:64
+
+ [32mΓ£ô[39m src/App.test.tsx [2m([22m[2m38 tests[22m[2m)[22m[33m 4568[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders without crashing (smoke) [33m 309[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders all workspace view buttons [33m 319[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m76 passed[39m[22m[90m (76)[39m
+[2m   Start at [22m 11:52:59
+[2m   Duration [22m 9.60s[2m (transform 796ms, setup 1.13s, import 1.44s, tests 5.36s, environment 7.42s)[22m
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |    5.83 |     5.29 |    7.21 |    6.18 |                   
+ src               |   36.85 |    37.56 |   53.33 |   37.23 |                   
+  App.tsx          |   36.85 |    37.56 |   53.33 |   37.23 | ...7-574,827-1031 
+ src/components    |   25.78 |    29.14 |   16.12 |   25.28 |                   
+  ...iticPanel.tsx |       0 |        0 |       0 |       0 | 36-505            
+  LeadSheet.tsx    |       0 |        0 |       0 |       0 | 44-486            
+  TransportBar.tsx |      98 |    96.22 |    90.9 |     100 | 101,119           
+ ...ts/instruments |     3.5 |     0.78 |    2.63 |    3.16 |                   
+  BassTab.tsx      |       0 |        0 |       0 |       0 | 30-606            
+  DrumsTab.tsx     |       0 |        0 |       0 |       0 | 13-73             
+  Fretboard.tsx    |       0 |        0 |       0 |       0 | 3-105             
+  SoundbankTab.tsx |       0 |        0 |       0 |       0 | 17-345            
+  UIPrimitives.tsx |       0 |        0 |       0 |       0 | 17-367            
+  bassPresets.ts   |     100 |      100 |     100 |     100 |                   
+  types.ts         |      25 |      100 |       0 |      25 | 71-77             
+ ...mponents/views |       0 |        0 |       0 |       0 |                   
+  ...mentsView.tsx |       0 |        0 |       0 |       0 | 37-402            
+  MixerView.tsx    |       0 |        0 |       0 |       0 | 50-521            
+  ...ramerView.tsx |       0 |        0 |       0 |       0 | 26-341            
+  ...enderView.tsx |       0 |        0 |       0 |       0 | 36-651            
+  PartsView.tsx    |       0 |        0 |       0 |       0 | 19-362            
+  RhythmGrid.tsx   |       0 |        0 |       0 |       0 | 12-351            
+  SynthView.tsx    |       0 |        0 |       0 |       0 | 6-595             
+ ...ews/RhythmGrid |       0 |        0 |       0 |       0 |                   
+  StepButton.tsx   |       0 |        0 |       0 |       0 | 12-38             
+  constants.ts     |       0 |      100 |       0 |       0 | 3-27              
+  useDrumGrid.ts   |       0 |        0 |       0 |       0 | 7-63              
+  useDrumSynths.ts |       0 |        0 |       0 |       0 | 7-84              
+ src/hooks         |    1.28 |        0 |       0 |    1.33 |                   
+  useRecording.ts  |    3.33 |        0 |       0 |    3.38 | 21-22,28-129      
+  useTransport.ts  |       0 |        0 |       0 |       0 | 5-117             
+  ...oiceToMidi.ts |       0 |        0 |       0 |       0 | 4-84              
+ src/lib           |    0.36 |        0 |       0 |     0.4 |                   
+  engine.ts        |    0.51 |        0 |       0 |    0.57 | 67,73-499         
+  persistence.ts   |       0 |        0 |       0 |       0 | 47-167            
+  players.ts       |       0 |      100 |       0 |       0 | 7-150             
+  prng.ts          |       0 |        0 |       0 |       0 | 10-63             
+ src/lib/audio     |    7.58 |     3.13 |    5.16 |       8 |                   
+  engine.ts        |   29.38 |    21.15 |   14.28 |    30.5 | ...36-490,511-516 
+  sequencer.ts     |       0 |        0 |       0 |       0 | 7-372             
+  soundbankDb.ts   |       0 |        0 |       0 |       0 | 14-150            
+  ...bankLoader.ts |       0 |        0 |       0 |       0 | 22-75             
+  synth.ts         |       0 |        0 |       0 |       0 | 43-718            
+ src/theory        |       0 |        0 |       0 |       0 |                   
+  arcPlanner.ts    |       0 |        0 |       0 |       0 | 69-309            
+  critic.ts        |       0 |        0 |       0 |       0 | 51-371            
+  fixer.ts         |       0 |        0 |       0 |       0 | 39-183            
+  fretboard.ts     |       0 |        0 |       0 |       0 | 18-499            
+  harmony.ts       |       0 |        0 |       0 |       0 | 27-277            
+  melody.ts        |       0 |        0 |       0 |       0 | 40-320            
+  pitch.ts         |       0 |        0 |       0 |       0 | 5-221             
+  reharm.ts        |       0 |        0 |       0 |       0 | 34-395            
+  ...icReframer.ts |       0 |        0 |       0 |       0 | 34-449            
+  songFraming.ts   |       0 |        0 |       0 |       0 | 46-325            
+  ...wareCritic.ts |       0 |        0 |       0 |       0 | 24-189            
+  voicing.ts       |       0 |        0 |       0 |       0 | 21-226            
+-------------------|---------|----------|---------|---------|-------------------
+ERROR: Coverage for lines (25%) does not meet global threshold (80%) for src/components/instruments/types.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/types.ts
+ERROR: Coverage for statements (25%) does not meet global threshold (80%) for src/components/instruments/types.ts
+ERROR: Coverage for lines (3.38%) does not meet global threshold (80%) for src/hooks/useRecording.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/hooks/useRecording.ts
+ERROR: Coverage for statements (3.33%) does not meet global threshold (80%) for src/hooks/useRecording.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/hooks/useRecording.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/hooks/useTransport.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/hooks/useTransport.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/hooks/useTransport.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/hooks/useTransport.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/hooks/useVoiceToMidi.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/hooks/useVoiceToMidi.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/hooks/useVoiceToMidi.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/hooks/useVoiceToMidi.ts
+ERROR: Coverage for lines (30.5%) does not meet global threshold (80%) for src/lib/audio/engine.ts
+ERROR: Coverage for functions (14.28%) does not meet global threshold (80%) for src/lib/audio/engine.ts
+ERROR: Coverage for statements (29.38%) does not meet global threshold (80%) for src/lib/audio/engine.ts
+ERROR: Coverage for branches (21.15%) does not meet global threshold (70%) for src/lib/audio/engine.ts
+ERROR: Coverage for lines (37.23%) does not meet global threshold (80%) for src/App.tsx
+ERROR: Coverage for functions (53.33%) does not meet global threshold (80%) for src/App.tsx
+ERROR: Coverage for statements (36.85%) does not meet global threshold (80%) for src/App.tsx
+ERROR: Coverage for branches (37.56%) does not meet global threshold (70%) for src/App.tsx
+ERROR: Coverage for lines (0.57%) does not meet global threshold (80%) for src/lib/engine.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/engine.ts
+ERROR: Coverage for statements (0.51%) does not meet global threshold (80%) for src/lib/engine.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/engine.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/reharm.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/reharm.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/reharm.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/reharm.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/players.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/players.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/players.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/prng.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/prng.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/prng.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/prng.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/arcPlanner.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/arcPlanner.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/arcPlanner.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/arcPlanner.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/persistence.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/persistence.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/persistence.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/persistence.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/fixer.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/fixer.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/fixer.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/fixer.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/critic.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/critic.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/critic.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/critic.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/LeadSheet.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/LeadSheet.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/LeadSheet.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/LeadSheet.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/ArrangementCriticPanel.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/ArrangementCriticPanel.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/ArrangementCriticPanel.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/ArrangementCriticPanel.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/pitch.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/pitch.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/pitch.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/pitch.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/songFraming.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/songFraming.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/songFraming.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/songFraming.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/harmony.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/harmony.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/harmony.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/harmony.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/melody.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/melody.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/melody.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/melody.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/styleAwareCritic.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/styleAwareCritic.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/styleAwareCritic.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/styleAwareCritic.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/voicing.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/voicing.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/voicing.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/voicing.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/fretboard.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/fretboard.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/fretboard.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/fretboard.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/theory/rhythmicReframer.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/theory/rhythmicReframer.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/theory/rhythmicReframer.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/theory/rhythmicReframer.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/instruments/Fretboard.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/Fretboard.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/instruments/Fretboard.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/instruments/Fretboard.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/instruments/DrumsTab.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/DrumsTab.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/instruments/DrumsTab.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/instruments/DrumsTab.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/instruments/UIPrimitives.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/UIPrimitives.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/instruments/UIPrimitives.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/instruments/UIPrimitives.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/instruments/SoundbankTab.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/SoundbankTab.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/instruments/SoundbankTab.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/instruments/SoundbankTab.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/InstrumentsView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/InstrumentsView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/InstrumentsView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/InstrumentsView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/instruments/BassTab.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/instruments/BassTab.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/instruments/BassTab.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/instruments/BassTab.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/MixerView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/MixerView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/MixerView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/MixerView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/MpcReframerView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/MpcReframerView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/MpcReframerView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/MpcReframerView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/audio/soundbankLoader.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/audio/soundbankLoader.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/audio/soundbankLoader.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/audio/soundbankLoader.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/OntologyBlenderView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for 
+src/components/views/OntologyBlenderView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/views/OntologyBlenderView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/OntologyBlenderView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/audio/soundbankDb.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/audio/soundbankDb.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/audio/soundbankDb.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/audio/soundbankDb.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/audio/sequencer.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/audio/sequencer.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/audio/sequencer.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/audio/sequencer.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/RhythmGrid.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/PartsView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/PartsView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/PartsView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/PartsView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/lib/audio/synth.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/lib/audio/synth.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/lib/audio/synth.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/lib/audio/synth.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/SynthView.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for src/components/views/SynthView.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for src/components/views/SynthView.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for src/components/views/SynthView.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid/constants.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/constants.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/constants.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid/useDrumGrid.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/useDrumGrid.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/useDrumGrid.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for 
+src/components/views/RhythmGrid/useDrumGrid.ts
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for src/components/views/RhythmGrid/StepButton.tsx
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/StepButton.tsx
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/StepButton.tsx
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for 
+src/components/views/RhythmGrid/StepButton.tsx
+ERROR: Coverage for lines (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/useDrumSynths.ts
+ERROR: Coverage for functions (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/useDrumSynths.ts
+ERROR: Coverage for statements (0%) does not meet global threshold (80%) for 
+src/components/views/RhythmGrid/useDrumSynths.ts
+ERROR: Coverage for branches (0%) does not meet global threshold (70%) for 
+src/components/views/RhythmGrid/useDrumSynths.ts

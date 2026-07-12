@@ -1,0 +1,447 @@
+﻿
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Users/User/Desktop/Chord-Engine-main[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+node.exe : [90mstderr[2m | src/lib/audio/engine.test.ts[2m > [22m[2mloadSampleFromUrl rejects on failure
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([90mstderr[2m...ects on failure:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[22m[39m[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see 
+https://vitest.dev/api/vi#vi-spyon for examples.
+
+ [31mΓ¥»[39m src/lib/audio/engine.test.ts [2m([22m[2m107 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 188[2mms[22m[39m
+     [32mΓ£ô[39m initializes tracks[32m 6[2mms[22m[39m
+     [32mΓ£ô[39m can set master volume[32m 1[2mms[22m[39m
+     [32mΓ£ô[39m transport starts and stops[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m can use track functions[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m can load samples[32m 3[2mms[22m[39m
+   [32mΓ£ô[39m transport additional functions[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m can schedule events[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport subscribes[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m audio engine gets current transport beat[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m removeTrack removes an existing track[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m removeTrack returns false for non-existing track[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m _onSoloChange sets soloActive and calls _updateSoloState on tracks[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m setReverbDecay sets the decay value[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromBuffer resolves and stores sample[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl resolves and stores sample[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl with filename overrides url parsing[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl rejects on failure[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m start resolves when context is running[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m resume calls start[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m transport.stop calls onStop callbacks[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m transport.toggle toggles between start and stop[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m transport.getCurrentBeat parses position string[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport.tempo setter updates bpm and notifies[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track.setTrim sets trim gain[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track.setEQ sets high and low values[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track.playOscillator creates and plays an oscillator[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track.playNote plays note with envelope[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track._updateSoloState silences non-soloed tracks when solo is active[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track._updateSoloState restores track when solo is not active[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m Track.dispose disconnects and disposes all nodes[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m getTrack returns track by id[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m getTrack returns null for unknown id[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m MAIN_TRACKS exports default track names[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m addTrack returns existing track if name already exists[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m track setMute calls _onSoloChange[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m track setSolo calls _onSoloChange[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m track volume getter returns linear volume[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m track pan getter returns pan value[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setReverbSend clamps value between 0 and 1[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setVolume clamps value to 0-1.2 range[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setPan clamps value to -1..1 range[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m loadSample disposes old buffer before loading new one[32m 4[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromBuffer disposes old buffer[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl disposes old buffer[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m engine drumKit is populated from DEFAULT_DRUM_NAMES[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport subscribe and unsubscribe works[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m transport reset stops and cancels[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m getTrack returns null when tracks is not a Map[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m playBufferShifted sets playback rate[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m playBuffer schedules disposal after playback[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m playOscillator schedules disposal after playback[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m playNote schedules disposal after playback[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m playBuffer with offset computes correct duration[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m playBufferShifted with offset computes correct duration[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Track constructor chains nodes correctly[32m 3[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl without filename uses url last segment[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl uses name when url has no segments[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m _updateSoloState does not change when mute state unchanged[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m track isMuted defaults to false[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m track isSolo defaults to false[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m addTrack creates new Track instance[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m engine ready resolves[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m engine ctx is defined[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport onBeat array is initialized[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport onStop array is initialized[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setMasterVolume does not throw[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromBuffer with zero-length buffer does not throw[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m track name is set correctly[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m engine has all default tracks[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m DEFAULT_TRACKS contains expected names[32m 2[2mms[22m[39m
+   [32mΓ£ô[39m getTrack with null tracks returns null[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m Track.setVolume when muted uses SILENT_DB[32m 4[2mms[22m[39m
+   [32mΓ£ô[39m Track._updateSoloState toggles volume when mute state changes[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m transport.start() calls engine.start()[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSample calls URL.createObjectURL and revokeObjectURL[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromBuffer calls URL.createObjectURL and revokeObjectURL[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m start() skips Tone.start when context is already running[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Transport scheduleRepeat callback fires _notify[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m _updateSoloState with muted track stays muted even when solo active[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m _updateSoloState with soloed track stays audible when solo active[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m _updateSoloState muted then unmuted restores volume[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m _onSoloChange with no soloed tracks sets soloActive false[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m _onSoloChange with multiple soloed tracks[32m 14[2mms[22m[39m
+[31m   [31m├ù[31m getTrack returns null for non-Map non-null tracks[39m[32m 21[2mms[22m[39m[33m (retry x2)[39m
+   [32mΓ£ô[39m loadSample handles error during buffer load[32m 3[2mms[22m[39m
+   [32mΓ£ô[39m loadSampleFromUrl with filename that is empty string falls back to url parsing[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m start calls Tone.start when context is not running[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Transport._notify with no listeners does not throw[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m Transport._notify with multiple listeners[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m playBuffer without explicit duration uses buffer duration[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m playBufferShifted without explicit duration uses calculated duration[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m playOscillator without optional params uses defaults[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m playNote without envelope uses defaults[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m setVolume with mutedEffective true uses silent db[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m setVolume with mutedEffective false uses normal db[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setFilterFreq calls frequency setTargetAtTime[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m dispose calls disconnect and dispose on all nodes[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m setMute then setVolume applies silent db[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m setSolo false after true restores track[32m 29[2mms[22m[39m
+   [32mΓ£ô[39m _updateSoloState solo active with soloed muted track[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m setVolume at boundary 0[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setVolume at boundary 1.2[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setPan at boundary 0[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setPan at boundary -1[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m setPan at boundary 1[32m 0[2mms[22m[39m
+   [32mΓ£ô[39m transport toggle starts when not playing[32m 1[2mms[22m[39m
+   [32mΓ£ô[39m transport toggle stops when playing[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/audio/synth.test.ts [2m([22m[2m74 tests[22m[2m)[22m[33m 11980[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m overwrites an existing channel with the same id [33m 329[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m releases all notes on all channels [33m 317[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m returns all patches as a record [33m 330[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m handles different dcoRange values [33m 394[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m handles all dcoPwmSrc modes [33m 363[2mms[22m[39m
+       [33m[2mΓ£ô[22m[39m returns the sanitized patch [33m 970[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clamps dcoNoise to [0, 100] [33m 399[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m handles setupChannel after dispose [33m 329[2mms[22m[39m
+[90mstderr[2m | src/App.test.tsx[2m > [22m[2mApp[2m > [22m[2mhandleSaveProject catches errors and shows error 
+message
+[22m[39mSave error: Error: Network fail
+    at C:/Users/User/Desktop/Chord-Engine-main/src/App.test.tsx:524:84
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:302:11
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:1903:26
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/di
+st/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/d
+ist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2955:64
+
+ [32mΓ£ô[39m src/components/instruments/BassTab.test.tsx [2m([22m[2m79 tests[22m[2m)[22m[33m 11553[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the upload button when not loaded [33m 588[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m entering a name and clicking save creates a user preset [33m 359[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m empty preset name does not save [33m 397[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m delete preset button appears for user presets [33m 606[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m Copy B to A after switching to slot B [33m 340[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switching from B back to A restores A snapshot [33m 310[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m delete a user preset after saving it [33m 572[2mms[22m[39m
+ [32mΓ£ô[39m src/App.test.tsx [2m([22m[2m38 tests[22m[2m)[22m[33m 12061[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders without crashing (smoke) [33m 666[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders all workspace view buttons [33m 638[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m navigates to mixer view when clicking Console Mixer button [33m 418[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m navigates to parts view when clicking Parts & Score button [33m 361[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m navigates to instruments view when clicking Instruments button [33m 489[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m navigates to blender view when clicking Ontology Blender button [33m 339[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m navigates to reframer view when clicking MPC Re-framer button [33m 306[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m removing a section removes it from the list [33m 397[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m moving a section up reorders the sections [33m 703[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m moving a section down reorders the sections [33m 331[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m saving a project calls PersistenceManager.saveProject [33m 367[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles sidebar visibility when menu button is clicked [33m 525[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m changing music key updates state [33m 421[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m randomizeSeed changes the seed value [33m 360[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m saving with empty project name shows error [33m 412[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save button shows Saving... while saving [33m 328[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m handleSaveProject catches errors and shows error message [33m 579[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/MixerView.test.tsx [2m([22m[2m53 tests[22m[2m)[22m[33m 17559[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the mixer header [33m 552[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows the main tracks tab as active by default [33m 763[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches to drums tab on click [33m 695[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders channel strips for each main track [33m 341[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m has mute and solo buttons for channels [33m 455[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles mute when clicking a mute button [33m 314[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles solo when clicking a solo button [33m 329[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows drum submix tracks when switching to drums tab [33m 527[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows the submix visual notice on drums tab [33m 489[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders volume faders for each channel [33m 310[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles mute off when clicking an already-muted button [33m 531[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles solo off when clicking an already-soloed button [33m 402[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows drum submix tab becomes active after click [33m 535[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m changing a volume fader dispatches param change [33m 305[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switching between main and drums tabs changes visible tracks [33m 462[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m drum tracks show submix visual notice [33m 414[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switching tabs updates visible channel count [33m 544[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m drum submix has channel strips with knobs [33m 431[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m mute multiple channels [33m 333[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/OntologyBlenderView.test.tsx [2m([22m[2m27 tests[22m[2m)[22m[33m 8819[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the radar chart [33m 419[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m solo button sets a writer to 100% and resets others [33m 386[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows success message after compiling [33m 2240[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows success message after generating [33m 2830[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking Bio button shows that writer bio [33m 340[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/RhythmGrid.test.tsx [2m([22m[2m46 tests[22m[2m)[22m[33m 24693[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the RhythmGrid heading [33m 629[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders play button [33m 730[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders stop button when playing [33m 642[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls togglePlay when play button clicked [33m 591[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders preset buttons [33m 626[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders clear button [33m 594[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls clearGrid when clear button clicked [33m 624[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders save button [33m 606[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls saveUserPreset when save button clicked [33m 583[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders load button and toggles preset library [33m 711[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows "No patterns saved" when presets is empty [33m 859[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders swing slider [33m 314[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders fullscreen toggle [33m 680[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders zoom toggle [33m 623[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders drum rows in the grid [33m 552[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders reset button [33m 683[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m displays pattern library panel presets [33m 761[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m closes preset library when close button clicked [33m 1299[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m loads preset when preset library button clicked [33m 729[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m swing slider changes swing value [33m 402[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m ghost notes slider changes ghost notes value [33m 322[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m tempo input changes tempo value [33m 521[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m tempo input falls back to 120 for invalid input [33m 540[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m fullscreen toggle switches to fullscreen mode [33m 767[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m fullscreen toggle switches back from fullscreen [33m 1414[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m zoom toggle switches to zoomed mode [33m 802[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m zoom toggle switches back from zoomed mode [33m 1240[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m resets step to 0 when reset button clicked [33m 663[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders all drum track labels [33m 398[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows zoomed subtitle when zoomed [33m 662[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows fullscreen subtitle when fullscreen [33m 743[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/PartsView.test.tsx [2m([22m[2m49 tests[22m[2m)[22m[33m 7053[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m has a player select dropdown [33m 576[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/MpcReframerView.test.tsx [2m([22m[2m37 tests[22m[2m)[22m[33m 7938[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the header [33m 388[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows section buttons when sections exist [33m 966[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls setActiveReframeSec when section is clicked [33m 624[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches sections via section buttons [33m 544[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m highlights active section button [33m 490[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m triggers bit depth change for a track [33m 705[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches sections and updates active reframe section display [33m 624[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/InstrumentsView.test.tsx [2m([22m[2m80 tests[22m[2m)[22m[33m 9098[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches to bass tab when the second sidebar button is clicked [33m 519[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggles sidebar expansion [33m 356[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m sidebar collapse/expand toggle works [33m 451[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m has an aria-expanded attribute on sidebar toggle [33m 309[2mms[22m[39m
+ [32mΓ£ô[39m src/components/ArrangementCriticPanel.test.tsx [2m([22m[2m37 tests[22m[2m)[22m[33m 2811[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m filters findings when a category button is clicked [33m 430[2mms[22m[39m
+ [32mΓ£ô[39m src/components/LeadSheet.test.tsx [2m([22m[2m32 tests[22m[2m)[22m[33m 5928[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m opens the substitution popover when a chord button is clicked [33m 617[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/SoundbankTab.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 1885[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls onQuickLoadBass when the bass load button is clicked [33m 596[2mms[22m[39m
+ [32mΓ£ô[39m src/components/TransportBar.test.tsx [2m([22m[2m25 tests[22m[2m)[22m[33m 1610[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m calls togglePlay when the play button is clicked [33m 417[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/UIPrimitives.test.tsx [2m([22m[2m42 tests[22m[2m)[22m[33m 1435[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m has aria-label with loaded state when loaded [33m 350[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/Fretboard.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 897[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/RhythmGrid/StepButton.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 648[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders a button element [33m 405[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/DrumsTab.newFeatures.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 419[2mms[22m[39m
+Not implemented: navigation to another Document
+ [32mΓ£ô[39m src/hooks/useRecording.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 170[2mms[22m[39m
+ [32mΓ£ô[39m src/hooks/useDrumGrid.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 239[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/DrumsTab.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 421[2mms[22m[39m
+[90mstderr[2m | src/hooks/useTransport.test.ts[2m > [22m[2museTransport[2m > [22m[2mplay() sets playError when 
+transport.start() rejects
+[22m[39mFailed to start transport: Error: AudioContext suspended
+    at C:/Users/User/Desktop/Chord-Engine-main/src/hooks/useTransport.test.ts:177:43
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:302:11
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:1903:26
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/di
+st/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/d
+ist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2955:64
+
+[90mstderr[2m | src/hooks/useTransport.test.ts[2m > [22m[2museTransport[2m > [22m[2mplay() clears playError on 
+success
+[22m[39mFailed to start transport: Error: fail
+    at C:/Users/User/Desktop/Chord-Engine-main/src/hooks/useTransport.test.ts:189:47
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:302:11
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:1903:26
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/di
+st/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/d
+ist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/User/Desktop/Chord-Engine-main/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifa
+ct.js:2955:64
+
+ [32mΓ£ô[39m src/hooks/useTransport.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 222[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/prng.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 151[2mms[22m[39m
+ [32mΓ£ô[39m src/hooks/useVoiceToMidi.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 168[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/pitch.test.ts [2m([22m[2m119 tests[22m[2m)[22m[32m 79[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/harmony.test.ts [2m([22m[2m125 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/songFraming.test.ts [2m([22m[2m124 tests[22m[2m)[22m[32m 72[2mms[22m[39m
+ [32mΓ£ô[39m src/hooks/useDrumSynths.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 94[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/SynthView.test.tsx [2m([22m[2m110 tests[22m[2m)[22m[33m 51823[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m renders the synth header [33m 482[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows three channel tabs [33m 1088[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches to pad channel on click [33m 553[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches to bass channel on click [33m 548[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m displays the init channel button [33m 544[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows the presets button [33m 411[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows factory presets for the active channel [33m 553[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m displays voice mode buttons [33m 511[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m opens preset list when clicking Presets button [33m 574[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switches back to lead channel after visiting pad [33m 1128[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking Init Channel resets patch values [33m 562[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking a factory preset button applies the preset [33m 488[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking a chorus button changes the chorus mode [33m 551[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m voice mode buttons are clickable [33m 456[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m unison voice mode shows detune fader [33m 575[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows factory presets for pad channel [33m 857[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows factory presets for bass channel [33m 751[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggling VCA mode from ENV to GATE [33m 425[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m toggling VCF polarity [33m 670[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset button is disabled when name is empty [33m 367[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset button enabled when name is entered [33m 430[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset saves and clears name [33m 521[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking Init Channel resets the patch [33m 453[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking factory preset shows flash animation [33m 453[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m shows ENV and GATE mode buttons [33m 391[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m unison detune fader shows when unison is selected [33m 522[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m unison detune fader hides when not in unison mode [33m 508[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m VCA mode buttons toggle [33m 824[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m loading a user preset from the preset list applies the patch [33m 668[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m delete preset removes it from the list [33m 829[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m changing chorus modes [33m 1392[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m VCA mode GATE is selectable [33m 432[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m VCA mode ENV is selectable [33m 414[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m init channel button resets the current channel [33m 750[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switching channels shows channel-specific info [33m 856[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m factory preset buttons change when channel switches [33m 1113[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m unison mode shows detune fader and MONO hides it [33m 820[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save button shows spinner when saving [33m 562[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset with empty name does nothing [33m 403[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m multiple factory presets can be loaded in sequence [33m 1122[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking the same chorus button turns it off [33m 462[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m preset list button toggles open and closed [33m 561[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m HPF selector options are clickable [33m 403[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m DCO range selector options are clickable [33m 363[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m PWM source selector options are clickable [33m 354[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m factory preset on pad channel applies patch [33m 891[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m factory preset on bass channel applies patch [33m 722[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m load factory preset sets justLoadedPreset flash then clears [33m 758[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m rapid preset clicks clear previous timeout [33m 1093[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset button with spaces-only name is disabled [33m 433[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset re-entrancy guard prevents double save [33m 776[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m save preset calls PersistenceManager.savePreset [33m 542[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m preset list shows preset with delete button [33m 653[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m preset list filters by active channel [33m 550[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m loading user preset with empty patch applies defaults [33m 577[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking Init Channel on each channel resets correctly [33m 1746[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m VCF polarity toggles between + and - [33m 979[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m voice mode POLY is selected by default [33m 372[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m switching voice modes updates active state [33m 1173[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m VCA mode ENV is selected by default for lead [33m 369[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m chorus OFF is not selected by default [33m 382[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m clicking active chorus button turns it off [33m 422[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m all four chorus modes can be activated [33m 725[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m SynthView renders all fader labels [33m 345[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m selecting same channel again is stable [33m 468[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m delete preset on non-lead channel [33m 1177[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m init channel button shows rotate icon [33m 407[2mms[22m[39m
+[90mstderr[2m | src/theory/melody.test.ts[2m > [22m[2mleap resolution[2m > [22m[2mresolves a leap by step in 
+opposite direction
+[22m[39mgenerateMelodyForSection: section "verse" has multiple chords per bar; rest/motif logic may skip mid-bar 
+chord changes.
+generateMelodyForSection: section "verse" has multiple chords per bar; rest/motif logic may skip mid-bar chord changes.
+
+ [32mΓ£ô[39m src/theory/melody.test.ts [2m([22m[2m34 tests[22m[2m)[22m[32m 86[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/fretboard.test.ts [2m([22m[2m45 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/audio/sequencer.test.ts [2m([22m[2m55 tests[22m[2m)[22m[32m 62[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/reharm.test.ts [2m([22m[2m57 tests[22m[2m)[22m[32m 66[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/rhythmicReframer.test.ts [2m([22m[2m33 tests[22m[2m)[22m[32m 68[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/audio/soundbankDb.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/fixer.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/persistence.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/voicing.test.ts [2m([22m[2m44 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/arcPlanner.test.ts [2m([22m[2m54 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/critic.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32mΓ£ô[39m src/theory/styleAwareCritic.test.ts [2m([22m[2m38 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/audio/soundbankLoader.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+ [32mΓ£ô[39m src/lib/players.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/types.test.ts [2m([22m[2m34 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+[90mstderr[2m | src/lib/engine.test.ts[2m > [22m[2mgenerateProgression[2m > [22m[2mskips invalid keys
+[22m[39mgenerateProgression: invalid key "X" for section "verse"
+
+ [32mΓ£ô[39m src/lib/engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32mΓ£ô[39m src/components/instruments/bassPresets.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32mΓ£ô[39m src/components/views/RhythmGrid/constants.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+
+[31mΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[39m[1m[41m Failed Tests 1 [49m[22m[31mΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[39m
+
+[41m[1m FAIL [22m[49m src/lib/audio/engine.test.ts[2m > [22mgetTrack returns null for non-Map non-null tracks
+[41m[1m FAIL [22m[49m src/lib/audio/engine.test.ts[2m > [22mgetTrack returns null for non-Map non-null tracks
+[41m[1m FAIL [22m[49m src/lib/audio/engine.test.ts[2m > [22mgetTrack returns null for non-Map non-null tracks
+[31m[1mAssertionError[22m: expected { name: 'drums' } to be null[39m
+
+[32m- Expected:[39m
+null
+
+[31m+ Received:[39m
+{
+  "name": "drums",
+}
+
+[36m [2mΓ¥»[22m src/lib/audio/engine.test.ts:[2m661:20[22m[39m
+    [90m659|[39m     (audioEngine [35mas[39m any)[33m.[39mtracks [33m=[39m { drums[33m:[39m { 
+name[33m:[39m [32m'drums'[39m } }[33m;[39m
+    [90m660|[39m     [35mconst[39m result [33m=[39m [34mgetTrack[39m([32m'drums'[39m)[33m;[39m
+    [90m661|[39m     [34mexpect[39m(result)[33m.[39m[34mtoEqual[39m({ name[33m:[39m [32m'drums'[39m 
+})[33m;[39m
+    [90m   |[39m                    [31m^[39m
+    [90m662|[39m     (audioEngine [35mas[39m any)[33m.[39mtracks [33m=[39m orig[33m;[39m
+    [90m663|[39m   })[33m;[39m
+
+[31m[2mΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/3]ΓÄ»[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m46 passed[39m[22m[90m (47)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1949 passed[39m[22m[90m (1950)[39m
+[2m   Start at [22m 11:50:15
+[2m   Duration [22m 74.69s[2m (transform 8.32s, setup 28.99s, import 23.85s, tests 180.92s, environment 225.42s)[22m
+

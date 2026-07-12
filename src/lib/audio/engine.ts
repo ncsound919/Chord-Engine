@@ -36,11 +36,11 @@ export class AudioEngine {
   private _soloActive = false;
 
   public static readonly DEFAULT_TRACKS = [
-    'drums', 'bass', 'keys', 'guitar', 'pads',
+    'drums', 'bass', 'lead', 'pads', 'keys', 'guitar',
   ];
 
-  /** Synth sub-tracks created automatically for Ju-60 channels */
-  public static readonly SYNTH_TRACKS = ['synth-lead', 'synth-pad', 'synth-bass'];
+  /** Drum submix tracks for per-drum level control via mixer drum tab */
+  public static readonly DRUM_SUBMIX_TRACKS = ['kick', 'snare', 'hihat', 'toms', 'overhead'];
 
   /** Sampler tracks for one-shot and multi-sample instruments */
   public static readonly SAMPLER_TRACKS = ['oneshots', 'guitar-sampler', 'keys-sampler'];
@@ -77,9 +77,9 @@ export class AudioEngine {
     // Async readiness – reverb must be ready before playback
     this.ready = this.masterReverb.ready.then(() => {});
 
-    // Create default tracks — main + synth + sampler
+    // Create default tracks — main + drum submix + sampler
     AudioEngine.DEFAULT_TRACKS.forEach(name => this.addTrack(name));
-    AudioEngine.SYNTH_TRACKS.forEach(name => this.addTrack(name));
+    AudioEngine.DRUM_SUBMIX_TRACKS.forEach(name => this.addTrack(name));
     AudioEngine.SAMPLER_TRACKS.forEach(name => this.addTrack(name));
 
     // Populate default drum name mappings
@@ -443,22 +443,24 @@ export class Track {
     time: number = Tone.now(),
     offset = 0,
     duration?: number,
-    gain?: number
+    gain = 1,
   ) {
-    const player = new Tone.Player(buffer).connect(this.inputGain);
+    const noteGain = new Tone.Gain(
+      Math.max(0, Math.min(1, gain)),
+    ).connect(this.inputGain);
+
+    const player = new Tone.Player(buffer).connect(noteGain);
     player.playbackRate = playbackRate;
-    if (gain !== undefined) {
-      player.volume.value = Tone.gainToDb(Math.max(0.0001, gain));
-    }
-    
-    const playDuration = duration ?? (buffer.duration / playbackRate) - offset;
+
+    const playDuration = duration ?? Math.max(0.01, buffer.duration / playbackRate - offset);
     player.start(time, offset, playDuration);
 
-    const nowOffset = Math.max(0, (time - Tone.now())) * 1000;
-    const totalDelay = nowOffset + (playDuration + 0.05) * 1000;
+    const nowOffset = Math.max(0, time - Tone.now()) * 1000;
+    const totalDelay = nowOffset + (playDuration + 0.1) * 1000;
 
     setTimeout(() => {
       player.dispose();
+      noteGain.dispose();
     }, totalDelay);
   }
 

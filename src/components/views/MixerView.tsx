@@ -15,8 +15,9 @@ import {
   Waves,
 } from 'lucide-react';
 import { audioEngine, MAIN_TRACKS, getTrack } from '../../lib/audio/engine';
+import { AudioEngine } from '../../lib/audio/engine';
 
-const SYNTH_SUBTRACKS = ['synth-lead', 'synth-pad', 'synth-bass'] as const;
+const SYNTH_SUBTRACKS = ['lead', 'pads', 'bass'] as const;
 const SAMPLER_TRACKS = ['oneshots', 'guitar-sampler', 'keys-sampler'] as const;
 import { useTransport } from '../../hooks/useTransport';
 import { WaveformTimeline } from '../WaveformTimeline';

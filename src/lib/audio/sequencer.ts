@@ -18,7 +18,25 @@ const DRUM_SAMPLE_MAP: Record<string, string> = {
   'Tom Floor': 'Tom 3',
   'Tom 1': 'Tom 1',
   'Tom 2': 'Tom 2',
-  'Tom 3': 'Tom 3'
+  'Tom 3': 'Tom 3',
+};
+
+/** Drum name → submix track mapping so mixer faders actually control levels. */
+const DRUM_TRACK_MAP: Record<string, string> = {
+  Kick: 'kick',
+  Snare: 'snare',
+  'HH Closed': 'hihat',
+  'HH Open': 'hihat',
+  'Hi-Hat Closed': 'hihat',
+  'Hi-Hat Open': 'hihat',
+  'Tom High': 'toms',
+  'Tom Mid': 'toms',
+  'Tom Floor': 'toms',
+  'Tom 1': 'toms',
+  'Tom 2': 'toms',
+  'Tom 3': 'toms',
+  Crash: 'overhead',
+  Ride: 'overhead',
 };
 
 // Named step groups instead of unexplained magic-number arrays.
@@ -162,18 +180,20 @@ export class Sequencer {
 
     if (targetSection.drumPattern) {
       const grid = targetSection.drumPattern.grid;
-      const drumTrack = getTrack('drums');
 
       Object.entries(grid).forEach(([drum, steps]) => {
-        if (steps[stepInPattern]) {
-          const sampleName = this.mapDrumToSample(drum);
-          const buffer = audioEngine.loadedSamples.get(sampleName);
+        if (!steps[stepInPattern]) return;
 
-          if (buffer && drumTrack) {
-            drumTrack.playBuffer(buffer, adjustedTime);
-          } else {
-            this.playSynthesizedDrum(drum, adjustedTime);
-          }
+        const sampleName = this.mapDrumToSample(drum);
+        const buffer = audioEngine.loadedSamples.get(sampleName);
+
+        const trackId = DRUM_TRACK_MAP[drum] ?? 'drums';
+        const drumTrack = getTrack(trackId) ?? getTrack('drums');
+
+        if (buffer && drumTrack) {
+          drumTrack.playBuffer(buffer, adjustedTime);
+        } else {
+          this.playSynthesizedDrum(drum, adjustedTime);
         }
       });
     }
@@ -230,14 +250,15 @@ export class Sequencer {
   }
 
   private playSynthesizedDrum(drum: string, time: number) {
-    const track = getTrack('drums');
+    const trackId = DRUM_TRACK_MAP[drum] ?? 'drums';
+    const track = getTrack(trackId) ?? getTrack('drums');
     if (!track) return;
 
     if (drum === 'Kick') {
       track.playNote(50, 'sine', time, 0.1, { attack: 0.005, decay: 0.1, sustain: 0, release: 0.1 });
     } else if (drum === 'Snare') {
       track.playNote(200, 'triangle', time, 0.1, { attack: 0.005, decay: 0.05, sustain: 0, release: 0.05 });
-    } else if (drum.includes('HH')) {
+    } else if (drum.includes('HH') || drum.includes('Hi-Hat')) {
       track.playNote(8000, 'sine', time, 0.05, { attack: 0.001, decay: 0.02, sustain: 0, release: 0.02 });
     }
   }

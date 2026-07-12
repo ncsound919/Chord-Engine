@@ -6,10 +6,15 @@ import { InstrumentsView } from './InstrumentsView';
 vi.mock('../../lib/audio/engine', () => ({
   audioEngine: {
     drumKit: { Kick: '808_Kick.mp3', Snare: '808_Snare.mp3' },
-    resume: vi.fn(),
+    resume: vi.fn().mockResolvedValue(undefined),
     tracks: new Map([
-      ['bass', { setVolume: vi.fn(), playOscillator: vi.fn() }],
+      ['bass', {
+        setVolume: vi.fn(),
+        playBufferShifted: vi.fn(),
+        playOscillator: vi.fn(),
+      }],
     ]),
+    loadedSamples: new Map(),
     ctx: { currentTime: 0 },
   },
 }));
@@ -468,7 +473,7 @@ describe('InstrumentsView', () => {
   });
 
   it('triggers folder import via SoundbankTab callback', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -485,7 +490,7 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: [file] });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
@@ -838,7 +843,7 @@ describe('InstrumentsView', () => {
   });
 
   it('folder import matches snare and crash patterns', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -859,12 +864,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import matches hat and open hat patterns', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -884,12 +889,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import matches tom patterns', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -910,12 +915,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import matches bass pattern', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -934,14 +939,14 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalledWith(
-        'bass_default', 'bass', expect.anything(), 'electric_bass.wav', 'audio/wav'
+      expect(persistAndLoadFile).toHaveBeenCalledWith(
+        'bass_default', 'bass', expect.anything()
       );
     });
   });
 
   it('folder import matches bd pattern for kick', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -960,12 +965,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import matches snr pattern for snare', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -984,12 +989,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import matches hh pattern for hi-hat', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -1008,12 +1013,12 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 
   it('folder import shows error toast on failure', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     (persistAndLoadSample as any).mockRejectedValueOnce(new Error('fail'));
     render(<InstrumentsView />);
     await waitFor(() => {
@@ -1143,7 +1148,7 @@ describe('InstrumentsView', () => {
   });
 
   it('folder import matches unnamed tom pattern', async () => {
-    const { persistAndLoadSample } = await import('../../lib/audio/soundbankLoader');
+    const { persistAndLoadFile } = await import('../../lib/audio/soundbankLoader');
     render(<InstrumentsView />);
     await waitFor(() => {
       expect(screen.getByTestId('drums-tab-mock')).toBeInTheDocument();
@@ -1162,7 +1167,7 @@ describe('InstrumentsView', () => {
     Object.defineProperty(folderInput, 'files', { value: files });
     fireEvent.change(folderInput);
     await waitFor(() => {
-      expect(persistAndLoadSample).toHaveBeenCalled();
+      expect(persistAndLoadFile).toHaveBeenCalled();
     });
   });
 

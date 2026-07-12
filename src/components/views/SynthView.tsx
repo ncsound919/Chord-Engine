@@ -57,9 +57,9 @@ const FACTORY_PRESETS: Record<string, Array<{ name: string; patch: Partial<Ju60P
 };
 
 const CHANNELS = [
-  { id: 'lead', label: 'Synth Lead', track: 'synth-lead' },
-  { id: 'pad', label: 'Synth Pad', track: 'synth-pad' },
-  { id: 'bass', label: 'Synth Bass', track: 'synth-bass' },
+  { id: 'lead', label: 'Synth Lead', track: 'lead' },
+  { id: 'pad', label: 'Synth Pad', track: 'pads' },
+  { id: 'bass', label: 'Synth Bass', track: 'bass' },
 ] as const;
 
 type ChannelId = (typeof CHANNELS)[number]['id'];

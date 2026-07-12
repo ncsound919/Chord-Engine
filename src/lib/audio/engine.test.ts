@@ -242,7 +242,7 @@ describe('AudioEngine', () => {
   });
 
   it('MAIN_TRACKS exports default track names', () => {
-    expect(MAIN_TRACKS).toEqual(['drums', 'bass', 'keys', 'guitar', 'pads']);
+    expect(MAIN_TRACKS).toEqual(['drums', 'bass', 'lead', 'pads', 'keys', 'guitar']);
   });
 
   it('addTrack returns existing track if name already exists', () => {
@@ -517,9 +517,10 @@ describe('AudioEngine', () => {
   it('DEFAULT_TRACKS contains expected names', () => {
     expect(AudioEngine.DEFAULT_TRACKS).toContain('drums');
     expect(AudioEngine.DEFAULT_TRACKS).toContain('bass');
+    expect(AudioEngine.DEFAULT_TRACKS).toContain('lead');
+    expect(AudioEngine.DEFAULT_TRACKS).toContain('pads');
     expect(AudioEngine.DEFAULT_TRACKS).toContain('keys');
     expect(AudioEngine.DEFAULT_TRACKS).toContain('guitar');
-    expect(AudioEngine.DEFAULT_TRACKS).toContain('pads');
   });
 
   it('getTrack with null tracks returns null', () => {

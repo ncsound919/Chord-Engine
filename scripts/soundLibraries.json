@@ -1,0 +1,24 @@
+{
+  "paths": {
+    "bass": [
+      "sound libraries/bass/p bass",
+      "sound libraries/bass/musicradar-extreme-bass-samples",
+      "sound libraries/bass/Lyrical Distortion - `72 Jazz Bass Direct",
+      "Deterministic Engine Soundbank/Bass"
+    ],
+    "drums": [
+      "Deterministic Engine Soundbank/drum kit 1",
+      "Deterministic Engine Soundbank/drum kit 2"
+    ],
+    "keys": [
+      "sound libraries/FRONTLINE_VINTAGE_KEYS_2/VK2_CHORDS_AND_HITS"
+    ],
+    "strings": [
+      "sound libraries/Pulsed Records - World Series Gadulka Strings",
+      "sound libraries/Wavesfactory.W.Acoustic.12.Strings.Pick.KONTAKT"
+    ],
+    "xylophone": [
+      "sound libraries/Wavesfactory.W-Xylophone.KONTAKT"
+    ]
+  }
+}
