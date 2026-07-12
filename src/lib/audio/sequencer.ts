@@ -22,7 +22,7 @@ const DRUM_SAMPLE_MAP: Record<string, string> = {
 };
 
 /** Drum name → submix track mapping so mixer faders actually control levels. */
-const DRUM_TRACK_MAP: Record<string, string> = {
+export const DRUM_TRACK_MAP: Record<string, string> = {
   Kick: 'kick',
   Snare: 'snare',
   'HH Closed': 'hihat',
@@ -140,11 +140,12 @@ export class Sequencer {
     const beatInBar = Math.floor(localBeat % (targetSection.def.beatsPerBar || 4)) + 1;
 
     // 32 steps per 2 bars (8 beats) = 4 steps per beat.
-    // Clamped to avoid a floating-point edge case (e.g. localBeat % 8 landing
-    // at 7.99999...) rounding up to 32, which is out of range for the grid.
+    // Use floor + epsilon to avoid floating-point edge cases
+    // where (localBeat % 8) * 4 lands at 7.99999 and rounds up to 32.
+    const DRUM_PATTERN_BEATS = 8;
     const stepInPattern = Math.min(
       STEPS_PER_PATTERN - 1,
-      Math.round((localBeat % 8) * 4)
+      Math.floor(((localBeat % DRUM_PATTERN_BEATS) * 4) + 1e-6),
     );
 
     const tempo = Tone.getTransport().bpm.value;
