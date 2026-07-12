@@ -1,0 +1,7 @@
+node_modules/
+dist/
+src-tauri/target/
+test-assets/
+test-results/
+*.log
+.DS_Store
